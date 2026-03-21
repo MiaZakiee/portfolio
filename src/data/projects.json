@@ -1,0 +1,34 @@
+[
+  {
+    "slug": "wave-reader",
+    "name": "Wave Reader",
+    "description": "A real-time RSS feed aggregator with AI-powered summaries and a clean reading experience.",
+    "tech": ["React", "Node.js", "OpenAI API", "PostgreSQL"],
+    "link": "https://github.com/arivera/wave-reader",
+    "date": "2025"
+  },
+  {
+    "slug": "pixel-forge",
+    "name": "Pixel Forge",
+    "description": "Browser-based pixel art editor with layer support, animation timeline, and export to sprite sheets.",
+    "tech": ["TypeScript", "Canvas API", "Zustand", "Vite"],
+    "link": "https://github.com/arivera/pixel-forge",
+    "date": "2024"
+  },
+  {
+    "slug": "drift-api",
+    "name": "Drift API",
+    "description": "A lightweight REST API framework with built-in rate limiting, auth middleware, and auto-generated docs.",
+    "tech": ["Go", "SQLite", "Docker"],
+    "link": "https://github.com/arivera/drift-api",
+    "date": "2024"
+  },
+  {
+    "slug": "terrahex",
+    "name": "TerraHex",
+    "description": "Hex-grid based terrain generator for tabletop RPGs with export to PNG and Roll20 integration.",
+    "tech": ["Python", "Flask", "Three.js", "WebSocket"],
+    "link": "https://github.com/arivera/terrahex",
+    "date": "2023"
+  }
+]

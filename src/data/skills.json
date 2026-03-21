@@ -1,0 +1,6 @@
+{
+  "languages": ["JavaScript", "TypeScript", "Python", "Go", "Rust", "SQL", "HTML/CSS"],
+  "frameworks": ["React", "Next.js", "Node.js", "Express", "Flask", "Tailwind CSS", "Three.js"],
+  "tools": ["Git", "Docker", "AWS", "PostgreSQL", "Redis", "Figma", "Linux", "Nginx"],
+  "soft": ["Technical Writing", "Team Leadership", "Agile/Scrum", "System Design", "Mentoring"]
+}

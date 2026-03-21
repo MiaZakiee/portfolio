@@ -1,0 +1,23 @@
+[
+  {
+    "slug": "acme-corp",
+    "company": "Acme Corp",
+    "role": "Senior Full Stack Developer",
+    "dates": "2023 — Present",
+    "description": "Leading a team of 5 engineers building internal tools and customer-facing dashboards. Migrated legacy PHP monolith to a microservices architecture with React frontend."
+  },
+  {
+    "slug": "startup-xyz",
+    "company": "Startup XYZ",
+    "role": "Full Stack Developer",
+    "dates": "2021 — 2023",
+    "description": "Built and shipped the MVP for a SaaS analytics platform. Implemented real-time data pipelines, auth system, and Stripe integration from scratch."
+  },
+  {
+    "slug": "freelance",
+    "company": "Freelance",
+    "role": "Web Developer",
+    "dates": "2020 — 2021",
+    "description": "Delivered 15+ client projects including e-commerce sites, portfolio pages, and custom WordPress themes. Focused on performance and responsive design."
+  }
+]
