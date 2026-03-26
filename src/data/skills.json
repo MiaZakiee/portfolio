@@ -1,6 +1,8 @@
 {
-  "languages": ["JavaScript", "TypeScript", "Python", "Go", "Rust", "SQL", "HTML/CSS"],
-  "frameworks": ["React", "Next.js", "Node.js", "Express", "Flask", "Tailwind CSS", "Three.js"],
-  "tools": ["Git", "Docker", "AWS", "PostgreSQL", "Redis", "Figma", "Linux", "Nginx"],
-  "soft": ["Technical Writing", "Team Leadership", "Agile/Scrum", "System Design", "Mentoring"]
+  "languages": ["Java", "C++", "C#", "JavaScript", "TypeScript", "Python", "SQL", "HTML", "CSS"],
+  "frameworks": ["React", "React Native", "Next.js", "Expo", "ASP.NET", "Django", "FastAPI", "Flask"],
+  "databases": ["MongoDB", "PostgreSQL", "Firebase", "SQLite"],
+  "tools": ["Git", "Docker", "Google Cloud", "Linux/Unix", "Azure DevOps", "Postman", "Swagger UI", "Clerk", "Cron Jobs"],
+  "ai": ["HuggingFace", "Groq", "OpenRouter", "Ollama"],
+  "soft": ["Database Design", "System Design", "REST API", "Scripting", "Agile Development"]
 }

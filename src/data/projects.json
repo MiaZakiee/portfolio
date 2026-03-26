@@ -1,34 +1,26 @@
 [
   {
-    "slug": "wave-reader",
-    "name": "Wave Reader",
-    "description": "A real-time RSS feed aggregator with AI-powered summaries and a clean reading experience.",
-    "tech": ["React", "Node.js", "OpenAI API", "PostgreSQL"],
-    "link": "https://github.com/arivera/wave-reader",
+    "slug": "huggle",
+    "name": "Huggle",
+    "description": "A multi-platform food waste reduction app with real-time location services, authentication, and AI-powered features. Reached the final stage of DICT Region 7 StepUp Madasigon Program through WildCats Innovation Labs.",
+    "tech": ["React Native", "NextJS", "ASP.NET", "FastAPI", "Groq", "OpenRouter"],
+    "link": "https://github.com/MiaZakiee",
     "date": "2025"
   },
   {
-    "slug": "pixel-forge",
-    "name": "Pixel Forge",
-    "description": "Browser-based pixel art editor with layer support, animation timeline, and export to sprite sheets.",
-    "tech": ["TypeScript", "Canvas API", "Zustand", "Vite"],
-    "link": "https://github.com/arivera/pixel-forge",
+    "slug": "baithon",
+    "name": "Baithon",
+    "description": "A custom interpreted programming language with Bisaya syntax written in Java, designed to help Cebuanos learn programming fundamentals. Features custom syntax, control flow, type checking, and error handling using Visitor and Recursive Descent Parsing patterns.",
+    "tech": ["Java"],
+    "link": "https://github.com/MiaZakiee",
     "date": "2024"
   },
   {
-    "slug": "drift-api",
-    "name": "Drift API",
-    "description": "A lightweight REST API framework with built-in rate limiting, auth middleware, and auto-generated docs.",
-    "tech": ["Go", "SQLite", "Docker"],
-    "link": "https://github.com/arivera/drift-api",
-    "date": "2024"
-  },
-  {
-    "slug": "terrahex",
-    "name": "TerraHex",
-    "description": "Hex-grid based terrain generator for tabletop RPGs with export to PNG and Roll20 integration.",
-    "tech": ["Python", "Flask", "Three.js", "WebSocket"],
-    "link": "https://github.com/arivera/terrahex",
-    "date": "2023"
+    "slug": "llm-icl-research",
+    "name": "In-Context Learning in LLMs Research",
+    "description": "A controlled analysis of in-context learning behavior in large language models using artificially constructed languages. Built an automated end-to-end evaluation workflow covering prompt generation, model testing, scoring, performance analysis, and data visualization.",
+    "tech": ["Python"],
+    "link": "https://github.com/MiaZakiee",
+    "date": "2025"
   }
 ]
