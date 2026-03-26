@@ -1,23 +1,23 @@
 [
   {
-    "slug": "acme-corp",
-    "company": "Acme Corp",
-    "role": "Senior Full Stack Developer",
-    "dates": "2023 — Present",
-    "description": "Leading a team of 5 engineers building internal tools and customer-facing dashboards. Migrated legacy PHP monolith to a microservices architecture with React frontend."
+    "slug": "ayahay-fullstack",
+    "company": "Ayahay Online Booking",
+    "role": "Full-Stack Developer",
+    "dates": "August 2025 — February 2026",
+    "description": "Contributed to migration into a microservices architecture, improving scalability and deployment efficiency across core booking services. Constantly improving and revising with changes from stakeholders and seniors. Utilized Microsoft Azure DevOps for seamless project development and CI/CD pipelines to ensure code quality."
   },
   {
-    "slug": "startup-xyz",
-    "company": "Startup XYZ",
-    "role": "Full Stack Developer",
-    "dates": "2021 — 2023",
-    "description": "Built and shipped the MVP for a SaaS analytics platform. Implemented real-time data pipelines, auth system, and Stripe integration from scratch."
+    "slug": "ayahay-intern",
+    "company": "Ayahay Online Booking",
+    "role": "Mobile Developer Intern",
+    "dates": "June 2025 — August 2025",
+    "description": "Led a team of interns in developing the mobile version of the company's online booking platform using Agile methodologies and Microsoft Azure. Collaborated on API system redesign, contributing to improved scalability and maintainability of backend services."
   },
   {
-    "slug": "freelance",
-    "company": "Freelance",
-    "role": "Web Developer",
-    "dates": "2020 — 2021",
-    "description": "Delivered 15+ client projects including e-commerce sites, portfolio pages, and custom WordPress themes. Focused on performance and responsive design."
+    "slug": "citu-scholar",
+    "company": "Cebu Institute of Technology - University",
+    "role": "Non-Academic Scholar",
+    "dates": "January 2023 — January 2026",
+    "description": "Responsible for maintaining and troubleshooting software and hardware across a university computer laboratory with over 200 units, ensuring optimal performance and minimal downtime. Provided technical support for Microsoft Teams and Moodle, assisting students and faculty with account management, connectivity issues, and platform navigation."
   }
 ]
