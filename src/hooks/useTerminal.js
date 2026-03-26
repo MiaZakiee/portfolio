@@ -4,13 +4,14 @@ import skills from '@data/skills.json';
 import experience from '@data/experience.json';
 import aboutme from '@data/aboutme.json';
 import contacts from '@data/contacts.json';
+import certifications from '@data/certifications.json';
 
 // Build the virtual filesystem from JSON data
 function buildFileSystem() {
   const fs = {
     '/': {
       type: 'dir',
-      children: ['aboutme.txt', 'contacts.txt', 'projects', 'skills', 'experience'],
+      children: ['aboutme.txt', 'contacts.txt', 'projects', 'skills', 'experience', 'certifications.txt'],
     },
     '/aboutme.txt': {
       type: 'file',
@@ -19,6 +20,10 @@ function buildFileSystem() {
     '/contacts.txt': {
       type: 'file',
       content: formatContacts(),
+    },
+    '/certifications.txt': {
+      type: 'file',
+      content: formatCertifications(),
     },
     '/projects': {
       type: 'dir',
@@ -130,35 +135,37 @@ function formatExperience(e) {
   return lines.join('\n');
 }
 
+function formatCertifications() {
+  const lines = [];
+  lines.push(`\x1b[1;36m╭─── Certifications ───╮\x1b[0m`);
+  lines.push('');
+  certifications.forEach((c) => {
+    lines.push(`  \x1b[1;33m${c.name}\x1b[0m`);
+    lines.push(`  Issued By: ${c.issuer}`);
+    lines.push('');
+  });
+  lines.push(`\x1b[1;36m╰────────────────────────╯\x1b[0m`);
+  return lines.join('\n');
+}
+
 function generateNeofetch() {
   const d = personalDetails;
   const info = [
     `\x1b[1;32m${d.handle}\x1b[0m@\x1b[1;36mportfolio\x1b[0m`,
     `\x1b[1;37m${'-'.repeat(d.handle.length + 10)}\x1b[0m`,
-    `\x1b[1;33mName:\x1b[0m     ${d.name}`,
-    `\x1b[1;33mRole:\x1b[0m     ${d.role}`,
-    `\x1b[1;33mLocation:\x1b[0m ${d.location}`,
-    `\x1b[1;33mOS:\x1b[0m       ${d.os}`,
-    `\x1b[1;33mShell:\x1b[0m    ${d.shell}`,
-    `\x1b[1;33mTerminal:\x1b[0m ${d.terminal}`,
-    `\x1b[1;33mUptime:\x1b[0m   ${d.uptime}`,
-    `\x1b[1;33mPackages:\x1b[0m ${d.packages}`,
+    `\x1b[1;33mName:\x1b[0m     \x1b[1;37m${d.name}\x1b[0m`,
+    `\x1b[1;33mRole:\x1b[0m     \x1b[1;37m${d.role}\x1b[0m`,
+    `\x1b[1;33mLocation:\x1b[0m \x1b[1;37m${d.location}\x1b[0m`,
+    `\x1b[1;33mOS:\x1b[0m       \x1b[1;37m${d.os}\x1b[0m`,
+    `\x1b[1;33mShell:\x1b[0m    \x1b[1;37m${d.shell}\x1b[0m`,
+    `\x1b[1;33mTerminal:\x1b[0m \x1b[1;37m${d.terminal}\x1b[0m`,
+    `\x1b[1;33mUptime:\x1b[0m   \x1b[1;37m${d.uptime}\x1b[0m`,
+    `\x1b[1;33mPackages:\x1b[0m \x1b[1;37m${d.packages}\x1b[0m`,
     '',
     `\x1b[40m  \x1b[41m  \x1b[42m  \x1b[43m  \x1b[44m  \x1b[45m  \x1b[46m  \x1b[47m  \x1b[0m`,
   ];
 
-  const ascii = d.ascii;
-  const maxAsciiWidth = Math.max(...ascii.map((l) => l.length));
-  const lines = [];
-
-  const maxLines = Math.max(ascii.length, info.length);
-  for (let i = 0; i < maxLines; i++) {
-    const artLine = (ascii[i] || '').padEnd(maxAsciiWidth + 4);
-    const infoLine = info[i] || '';
-    lines.push(`\x1b[1;36m${artLine}\x1b[0m${infoLine}`);
-  }
-
-  return lines.join('\n');
+  return { isNeofetch: true, info, ascii: d.ascii, image: d.image };
 }
 
 // The command processor

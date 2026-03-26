@@ -3,7 +3,7 @@
     "slug": "ayahay-fullstack",
     "company": "Ayahay Online Booking",
     "role": "Full-Stack Developer",
-    "dates": "August 2025 — February 2026",
+    "dates": "August 2025 — March 2026",
     "description": "Contributed to migration into a microservices architecture, improving scalability and deployment efficiency across core booking services. Constantly improving and revising with changes from stakeholders and seniors. Utilized Microsoft Azure DevOps for seamless project development and CI/CD pipelines to ensure code quality."
   },
   {
@@ -19,5 +19,26 @@
     "role": "Non-Academic Scholar",
     "dates": "January 2023 — January 2026",
     "description": "Responsible for maintaining and troubleshooting software and hardware across a university computer laboratory with over 200 units, ensuring optimal performance and minimal downtime. Provided technical support for Microsoft Teams and Moodle, assisting students and faculty with account management, connectivity issues, and platform navigation."
+  },
+  {
+    "slug": "freelance",
+    "company": "Freelance",
+    "role": "Developer",
+    "dates": "2022 — Present",
+    "description": "Designed and built full-stack applications for non-technical clients, focusing on usability, scalability, and maintainability. Translated client requirements into functional systems while managing deployment and revisions. Conducted tutoring sessions for CS/IT students, covering programming fundamentals, debugging techniques, and software development best practices."
+  },
+  {
+    "slug": "notion-cit-u",
+    "company": "Notion CIT-U",
+    "role": "Organizer",
+    "dates": "2024 — 2026",
+    "description": "Organized and supported campus events for Notion, ensuring smooth program flow and attendee experience. Demonstrated and created Notion workflows during events to showcase productivity tools and practical use cases for students."
+  },
+  {
+    "slug": "volunteer",
+    "company": "Quantum Information, Science, and Technology Conference in the Philippines 2025",
+    "role": "Volunteer",
+    "dates": "2025",
+    "description": "Helped ensure smooth operations during the conference, assisting diplomats, speakers, and attendees with inquiries and logistics."
   }
 ]

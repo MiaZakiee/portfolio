@@ -109,6 +109,8 @@ export default function Terminal({ navigateTo, onActivity, onFocus }) {
   const [commandHistory, setCommandHistory] = useState([]);
   const [historyIndex, setHistoryIndex] = useState(-1);
   const [suggestion, setSuggestion] = useState('');
+  const [cycleCompletions, setCycleCompletions] = useState([]);
+  const [cycleIndex, setCycleIndex] = useState(-1);
   const inputRef = useRef(null);
   const outputRef = useRef(null);
   const [initialized, setInitialized] = useState(false);
@@ -134,13 +136,30 @@ export default function Terminal({ navigateTo, onActivity, onFocus }) {
     }
   }, [history]);
 
+  // Auto-focus input when typing anywhere
+  useEffect(() => {
+    const handleGlobalKeyDown = (e) => {
+      if (e.ctrlKey || e.metaKey || e.altKey) return;
+      if (document.activeElement && (document.activeElement.tagName === 'INPUT' || document.activeElement.tagName === 'TEXTAREA')) {
+        if (document.activeElement !== inputRef.current) return;
+      }
+      if (e.key.length === 1 || e.key === 'Backspace' || e.key === 'Enter') {
+        inputRef.current?.focus();
+        if (onActivity) onActivity();
+      }
+    };
+
+    window.addEventListener('keydown', handleGlobalKeyDown);
+    return () => window.removeEventListener('keydown', handleGlobalKeyDown);
+  }, [onActivity]);
+
   // Navigate from navbar
   useEffect(() => {
     if (navigateTo) {
       const cmd = navigateTo.cmd;
       if (cmd) {
-        // Execute commands sequentially
-        const commands = Array.isArray(cmd) ? cmd : [cmd];
+        // Execute commands sequentially, clearing first
+        const commands = ['clear', ...(Array.isArray(cmd) ? cmd : [cmd])];
         commands.forEach((c) => {
           const result = terminal.execute(c);
           if (result === '__CLEAR__') {
@@ -183,6 +202,8 @@ export default function Terminal({ navigateTo, onActivity, onFocus }) {
     setHistoryIndex(-1);
     setInput('');
     setSuggestion('');
+    setCycleCompletions([]);
+    setCycleIndex(-1);
   }, [input, terminal]);
 
   const handleKeyDown = useCallback((e) => {
@@ -192,7 +213,11 @@ export default function Terminal({ navigateTo, onActivity, onFocus }) {
       handleSubmit();
     } else if (e.key === 'Tab') {
       e.preventDefault();
-      if (suggestion) {
+      if (cycleCompletions.length > 0) {
+        const nextIndex = (cycleIndex + 1) % cycleCompletions.length;
+        setCycleIndex(nextIndex);
+        setInput(cycleCompletions[nextIndex]);
+      } else if (suggestion) {
         setInput(suggestion);
         setSuggestion('');
       } else {
@@ -200,14 +225,14 @@ export default function Terminal({ navigateTo, onActivity, onFocus }) {
         if (completions.length === 1) {
           setInput(completions[0]);
         } else if (completions.length > 1) {
-          setHistory((prev) => [
-            ...prev,
-            { type: 'output', content: completions.join('   ') },
-          ]);
+          setCycleCompletions(completions);
+          setCycleIndex(0);
+          setInput(completions[0]);
         }
       }
     } else if (e.key === 'ArrowUp') {
       e.preventDefault();
+      setCycleCompletions([]);
       if (commandHistory.length > 0) {
         const newIndex = Math.min(historyIndex + 1, commandHistory.length - 1);
         setHistoryIndex(newIndex);
@@ -215,6 +240,7 @@ export default function Terminal({ navigateTo, onActivity, onFocus }) {
       }
     } else if (e.key === 'ArrowDown') {
       e.preventDefault();
+      setCycleCompletions([]);
       if (historyIndex > 0) {
         const newIndex = historyIndex - 1;
         setHistoryIndex(newIndex);
@@ -227,7 +253,7 @@ export default function Terminal({ navigateTo, onActivity, onFocus }) {
       e.preventDefault();
       setHistory([]);
     }
-  }, [handleSubmit, suggestion, input, terminal, commandHistory, historyIndex]);
+  }, [handleSubmit, suggestion, input, terminal, commandHistory, historyIndex, cycleCompletions, cycleIndex]);
 
   // Autocomplete suggestion
   useEffect(() => {
@@ -270,6 +296,21 @@ export default function Terminal({ navigateTo, onActivity, onFocus }) {
                 <span>{parseAnsi(entry.prompt)}</span>
                 <span style={{ color: 'var(--term-fg)' }}>{entry.content}</span>
               </div>
+            ) : typeof entry.content === 'object' && entry.content.isNeofetch ? (
+              <div style={styles.neofetchContainer}>
+                {entry.content.image ? (
+                  <img src={entry.content.image} alt="neofetch art" style={styles.neofetchImage} />
+                ) : (
+                  <pre style={styles.neofetchAscii}>
+                    {entry.content.ascii.join('\n')}
+                  </pre>
+                )}
+                <div style={styles.neofetchInfo}>
+                  {entry.content.info.map((line, idx) => (
+                    <div key={idx} style={{ minHeight: '15px' }}>{parseAnsi(line)}</div>
+                  ))}
+                </div>
+              </div>
             ) : (
               <pre style={styles.pre}>{parseAnsi(entry.content)}</pre>
             )}
@@ -283,7 +324,11 @@ export default function Terminal({ navigateTo, onActivity, onFocus }) {
             <input
               ref={inputRef}
               value={input}
-              onChange={(e) => setInput(e.target.value)}
+              onChange={(e) => {
+                setInput(e.target.value);
+                setCycleCompletions([]);
+                setCycleIndex(-1);
+              }}
               onKeyDown={handleKeyDown}
               onFocus={onFocus}
               style={styles.input}
@@ -292,7 +337,8 @@ export default function Terminal({ navigateTo, onActivity, onFocus }) {
             />
             {suggestion && suggestion.length > input.length && (
               <span style={styles.suggestion}>
-                {suggestion.slice(input.length)}
+                <span style={{ visibility: 'hidden' }}>{suggestion.slice(0, input.length)}</span>
+                <span>{suggestion.slice(input.length)}</span>
               </span>
             )}
           </div>
@@ -376,6 +422,8 @@ const styles = {
     fontFamily: "'JetBrains Mono', monospace",
     fontSize: 10,
     width: '100%',
+    padding: 0,
+    margin: 0,
     caretColor: 'var(--term-cursor)',
   },
   suggestion: {
@@ -387,5 +435,37 @@ const styles = {
     fontFamily: "'JetBrains Mono', monospace",
     fontSize: 10,
     opacity: 0.5,
+    whiteSpace: 'pre',
+    padding: 0,
+    margin: 0,
+  },
+  neofetchContainer: {
+    display: 'flex',
+    gap: '24px',
+    alignItems: 'center',
+    marginTop: '10px',
+    marginBottom: '10px',
+    flexWrap: 'wrap',
+  },
+  neofetchImage: {
+    maxWidth: '180px',
+    maxHeight: '180px',
+    width: 'auto',
+    height: 'auto',
+    objectFit: 'contain',
+    borderRadius: '10px',
+  },
+  neofetchAscii: {
+    margin: 0,
+    fontFamily: "'JetBrains Mono', monospace",
+    fontSize: 10,
+    lineHeight: 1.2,
+    whiteSpace: 'pre',
+    color: '#ffffff',
+  },
+  neofetchInfo: {
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
   },
 };

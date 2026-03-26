@@ -14,7 +14,7 @@ function PortfolioContent() {
   }, []);
 
   const handleActivity = useCallback(() => {
-    cameraStore.reportActivity();
+    cameraStore.focusLaptop();
   }, []);
 
   return (

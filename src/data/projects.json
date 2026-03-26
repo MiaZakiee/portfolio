@@ -3,24 +3,110 @@
     "slug": "huggle",
     "name": "Huggle",
     "description": "A multi-platform food waste reduction app with real-time location services, authentication, and AI-powered features. Reached the final stage of DICT Region 7 StepUp Madasigon Program through WildCats Innovation Labs.",
-    "tech": ["React Native", "NextJS", "ASP.NET", "FastAPI", "Groq", "OpenRouter"],
-    "link": "https://github.com/MiaZakiee",
+    "tech": [
+      "React Native",
+      "NextJS",
+      "ASP.NET",
+      "FastAPI",
+      "Groq",
+      "OpenRouter"
+    ],
+    "link": "https://www.facebook.com/photo/?fbid=1301841658654352&set=pcb.1301845275320657",
     "date": "2025"
   },
   {
     "slug": "baithon",
     "name": "Baithon",
     "description": "A custom interpreted programming language with Bisaya syntax written in Java, designed to help Cebuanos learn programming fundamentals. Features custom syntax, control flow, type checking, and error handling using Visitor and Recursive Descent Parsing patterns.",
-    "tech": ["Java"],
-    "link": "https://github.com/MiaZakiee",
+    "tech": [
+      "Java"
+    ],
+    "link": "https://github.com/MiaZakiee/Baithon",
     "date": "2024"
   },
   {
     "slug": "llm-icl-research",
     "name": "In-Context Learning in LLMs Research",
     "description": "A controlled analysis of in-context learning behavior in large language models using artificially constructed languages. Built an automated end-to-end evaluation workflow covering prompt generation, model testing, scoring, performance analysis, and data visualization.",
-    "tech": ["Python"],
-    "link": "https://github.com/MiaZakiee",
+    "tech": [
+      "Python"
+    ],
+    "link": "https://github.com/ninocabiltes/Constructed-Language-Experiments",
+    "date": "2026"
+  },
+  {
+    "slug": "rc-chat",
+    "name": "RC Chat",
+    "description": "A real-time chat platform built entirely in Java from scratch, featuring user authentication and a fully functional messaging system powered by WebSockets. Designed as an OOP-focused project, it demonstrates low-level handling of client-server communication, concurrency, and session management without relying on external frameworks.",
+    "tech": [
+      "Java",
+      "WebSockets"
+    ],
+    "date": "2024"
+  },
+  {
+    "slug": "yapper-mail",
+    "name": "Yapper Mail",
+    "description": "A full-stack email service developed using Django for a Database 2 course project. Implements core email functionalities such as user authentication, message composition, inbox management, and persistent storage, showcasing strong integration between backend logic and relational database systems.",
+    "tech": [
+      "Django",
+      "Python",
+      "PostgreSQL"
+    ],
+    "date": "2024"
+  },
+  {
+    "slug": "trekkertracker",
+    "name": "TrekkerTracker",
+    "description": "A basic flight booking system created for a Database 1 course project, utilizing PHP and MySQL. Supports essential features such as flight listings, reservations, and data management, demonstrating foundational knowledge of relational databases and server-side scripting.",
+    "tech": [
+      "PHP",
+      "MySQL"
+    ],
+    "date": "2023"
+  },
+  {
+    "slug": "transugbo",
+    "name": "TranSugbo",
+    "description": "A bus route booking system tailored for Cebu, built using native Android development tools. Developed in Android Studio with Firebase as the backend, it provides route browsing, booking functionality, and real-time data handling, focusing on mobile-first user experience.",
+    "tech": [
+      "Java",
+      "Android Studio",
+      "Firebase"
+    ],
+    "date": "2024"
+  },
+  {
+    "slug": "pawpal",
+    "name": "PawPal",
+    "description": "A mobile application built with React Native and Expo that connects pet owners with businesses offering pet-related products and services. Features a user-friendly interface for browsing, discovery, and engagement within the pet care ecosystem.",
+    "tech": [
+      "React Native",
+      "Expo"
+    ],
+    "date": "2025"
+  },
+  {
+    "slug": "multilabel-classification",
+    "name": "Multilabel Animal Classification",
+    "description": "A deep learning project that leverages ResNet50 to perform multi-label classification on animal images using the Animals-10 dataset from Kaggle. Focuses on model training, evaluation, and performance optimization for handling complex image recognition tasks.",
+    "tech": [
+      "Python",
+      "TensorFlow/PyTorch",
+      "ResNet50"
+    ],
+    "date": "2025"
+  },
+  {
+    "slug": "hikaru-nakamura-chessbot",
+    "name": "Hikaru Nakamura Chessbot",
+    "description": "A machine learning-powered chess bot trained on games from Hikaru Nakamura, paired with a React-based user interface. Integrates an open-source chess library to enable gameplay, combining AI modeling with an interactive frontend experience.",
+    "tech": [
+      "Python",
+      "Machine Learning",
+      "React",
+      "Chess Library"
+    ],
     "date": "2025"
   }
 ]

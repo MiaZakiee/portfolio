@@ -6,6 +6,7 @@ const NAV_ITEMS = [
   { label: 'Projects', cmd: ['cd /projects', 'ls'] },
   { label: 'Skills', cmd: ['cd /skills', 'ls'] },
   { label: 'Experience', cmd: ['cd /experience', 'ls'] },
+  { label: 'Certifications', cmd: ['cd /', 'cat certifications.txt'] },
   { label: 'Contact', cmd: ['cd /', 'cat contacts.txt'] },
 ];
 
