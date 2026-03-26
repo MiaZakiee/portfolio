@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://ninocabiltes.dev/sitemap.xml
