@@ -2,6 +2,53 @@ import React, { useState, useRef, useEffect, useCallback, useMemo } from 'react'
 import { createTerminal } from '@hooks/useTerminal';
 import personalDetails from '@data/personalDetails.json';
 
+// Parse markdown links, raw URLs, and emails into clickable anchor tags
+function renderTextWithLinks(text) {
+  if (typeof text !== 'string') return text;
+  const regex = /\[([^\]]+)\]\((https?:\/\/[^\s()]+)\)|(https?:\/\/[^\s()]+|[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})/g;
+  const parts = [];
+  let lastIndex = 0;
+  let match;
+  let key = 0;
+  
+  while ((match = regex.exec(text)) !== null) {
+    if (match.index > lastIndex) {
+      parts.push(text.slice(lastIndex, match.index));
+    }
+    
+    let href, displayStr;
+    
+    if (match[1] && match[2]) {
+      displayStr = match[1];
+      href = match[2];
+    } else {
+      const matchedStr = match[3];
+      href = matchedStr.includes('@') && !matchedStr.startsWith('http') ? `mailto:${matchedStr}` : matchedStr;
+      displayStr = matchedStr;
+    }
+    
+    parts.push(
+      <a 
+        key={`link-${key++}`} 
+        href={href} 
+        target="_blank"
+        rel="noopener noreferrer" 
+        style={{ color: 'inherit', textDecoration: 'underline', pointerEvents: 'auto', cursor: 'pointer' }}
+        onClick={(e) => e.stopPropagation()}
+      >
+        {displayStr}
+      </a>
+    );
+    lastIndex = regex.lastIndex;
+  }
+  
+  if (lastIndex < text.length) {
+    parts.push(text.slice(lastIndex));
+  }
+  
+  return parts.length > 0 ? parts : text;
+}
+
 // Parse ANSI escape codes into styled spans
 function parseAnsi(text) {
   const parts = [];
@@ -21,8 +68,8 @@ function parseAnsi(text) {
   while ((match = regex.exec(text)) !== null) {
     if (match.index > lastIndex) {
       parts.push(
-        <span key={key++} style={{ ...currentStyles }}>
-          {text.slice(lastIndex, match.index)}
+        <span key={key++} style={{ ...currentStyles, pointerEvents: 'auto' }}>
+          {renderTextWithLinks(text.slice(lastIndex, match.index))}
         </span>
       );
     }
@@ -46,8 +93,8 @@ function parseAnsi(text) {
 
   if (lastIndex < text.length) {
     parts.push(
-      <span key={key++} style={{ ...currentStyles }}>
-        {text.slice(lastIndex)}
+      <span key={key++} style={{ ...currentStyles, pointerEvents: 'auto' }}>
+        {renderTextWithLinks(text.slice(lastIndex))}
       </span>
     );
   }

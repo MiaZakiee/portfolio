@@ -1,21 +1,21 @@
 {
-  "bio": "Hey! I'm Niño — a full stack developer who loves building things that live on the web. I got into programming by modding Minecraft servers at 14 and never looked back. These days I'm obsessed with developer tooling, creative coding, and making UIs that feel alive.",
+  "bio": "Hey! I'm Niño — a full stack developer who loves building things that live on the web. I got into programming by modding Minecraft at 13 and never looked back.",
   "interests": [
-    "Open source",
-    "Creative coding",
-    "Mechanical keyboards",
-    "Rock climbing",
-    "Sci-fi novels"
+    "Running",
+    "Hiking",
+    "Triathlons",
+    "Photography",
+    "Traveling",
+    "Tower defense games"
   ],
   "funFacts": [
-    "I've contributed to 3 open-source projects with 1k+ stars",
-    "My dotfiles repo is my most-starred project",
-    "I can solve a Rubik's cube in under 2 minutes",
-    "I've been to 12 countries and counting"
+    "I've completed a full marathon",
+    "I can solve a Rubik's cube in under 20 seconds",
+    "I wow"
   ],
   "currently": {
-    "learning": "Rust and WebAssembly",
-    "reading": "Project Hail Mary by Andy Weir",
-    "building": "A CLI tool for managing dotfiles"
+    "learning": "Agentic Development",
+    "reading": "Return of the Mount Hua Sect",
+    "building": "My body :D"
   }
 }
