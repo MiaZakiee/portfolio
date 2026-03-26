@@ -1,6 +1,12 @@
 {
-  "bio": "Hey! I'm Alex — a full stack developer who loves building things that live on the web. I got into programming by modding Minecraft servers at 14 and never looked back. These days I'm obsessed with developer tooling, creative coding, and making UIs that feel alive.",
-  "interests": ["Open source", "Creative coding", "Mechanical keyboards", "Rock climbing", "Sci-fi novels"],
+  "bio": "Hey! I'm Niño — a full stack developer who loves building things that live on the web. I got into programming by modding Minecraft servers at 14 and never looked back. These days I'm obsessed with developer tooling, creative coding, and making UIs that feel alive.",
+  "interests": [
+    "Open source",
+    "Creative coding",
+    "Mechanical keyboards",
+    "Rock climbing",
+    "Sci-fi novels"
+  ],
   "funFacts": [
     "I've contributed to 3 open-source projects with 1k+ stars",
     "My dotfiles repo is my most-starred project",

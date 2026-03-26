@@ -22,8 +22,8 @@ const MIN_PHI = -0.45;
 const MAX_PHI =  0.30;
 
 const DRAG_SENSITIVITY  = 0.0045;
-const DRAG_RESUME_DELAY = 3000;  // ms before auto-pan resumes after drag
-const INACTIVITY_TIMEOUT = 6000; // ms before unfocus
+const DRAG_RESUME_DELAY = 6000;  // ms before auto-pan resumes after drag
+const INACTIVITY_TIMEOUT = 12000; // ms before unfocus
 
 // Lerp speeds (time-based: factor = 1 - exp(-delta * speed))
 const SPEED_IDLE  = 1.6;

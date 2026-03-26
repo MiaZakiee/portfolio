@@ -7,7 +7,7 @@ import Terminal from './Terminal';
 export default function LaptopModel({ navigateTo, onActivity }) {
   const { isDark } = useTheme();
   const bodyColor = isDark ? '#1a1a2e' : '#2a2a3a';
-  const screenFrameColor = isDark ? '#111122' : '#1a1a28';
+  const screenFrameColor = isDark ? '#2a2a3e' : '#3a3a4a';
 
   const handleClick = useCallback((e) => {
     e.stopPropagation();
@@ -39,16 +39,16 @@ export default function LaptopModel({ navigateTo, onActivity }) {
       </mesh>
 
       {/* Screen group - rotated open */}
-      <group position={[0, 0.02, -0.78]} rotation={[-0.7, 0, 0]}>
+      <group position={[0, 0.02, -0.78]} rotation={[-0.5, 0, 0]}>
         {/* Screen frame */}
         <mesh position={[0, 0.85, 0]}>
-          <boxGeometry args={[2.5, 1.7, 0.05]} />
+          <boxGeometry args={[2.4, 1.7, 0.05]} />
           <meshStandardMaterial color={screenFrameColor} flatShading />
         </mesh>
 
         {/* Screen surface with Html terminal */}
         <mesh position={[0, 0.85, 0.03]}>
-          <planeGeometry args={[2.3, 1.5]} />
+          <planeGeometry args={[2.2, 1.5]} />
           <meshBasicMaterial color="#000000" />
         </mesh>
 
@@ -56,16 +56,16 @@ export default function LaptopModel({ navigateTo, onActivity }) {
           transform
           occlude
           position={[0, 0.85, 0.04]}
-          scale={0.14}
+          scale={0.135}
           style={{
-            width: '720px',
+            width: '690px',
             height: '450px',
             pointerEvents: 'auto',
           }}
         >
           <div
             style={{
-              width: '720px',
+              width: '690px',
               height: '450px',
               overflow: 'hidden',
             }}

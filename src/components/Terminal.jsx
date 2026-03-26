@@ -265,7 +265,7 @@ const styles = {
     display: 'flex',
     flexDirection: 'column',
     fontFamily: "'JetBrains Mono', monospace",
-    fontSize: 13,
+    fontSize: 10,
     cursor: 'text',
     boxShadow: '0 20px 60px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.05)',
   },
@@ -290,7 +290,7 @@ const styles = {
   },
   titleText: {
     color: '#6c7086',
-    fontSize: 12,
+    fontSize: 10,
     fontFamily: "'JetBrains Mono', monospace",
   },
   output: {
@@ -306,7 +306,7 @@ const styles = {
   pre: {
     margin: 0,
     fontFamily: "'JetBrains Mono', monospace",
-    fontSize: 13,
+    fontSize: 10,
     lineHeight: 1.5,
     whiteSpace: 'pre-wrap',
     wordBreak: 'break-word',
@@ -327,7 +327,7 @@ const styles = {
     outline: 'none',
     color: 'var(--term-fg)',
     fontFamily: "'JetBrains Mono', monospace",
-    fontSize: 13,
+    fontSize: 10,
     width: '100%',
     caretColor: 'var(--term-cursor)',
   },
@@ -338,7 +338,7 @@ const styles = {
     color: 'var(--term-comment)',
     pointerEvents: 'none',
     fontFamily: "'JetBrains Mono', monospace",
-    fontSize: 13,
+    fontSize: 10,
     opacity: 0.5,
   },
 };
