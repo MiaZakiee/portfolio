@@ -176,6 +176,22 @@ export default function Terminal({ navigateTo, onActivity, onFocus }) {
     }
   }, [navigateTo, terminal]);
 
+  const runCommand = useCallback((cmd) => {
+    const result = terminal.execute(cmd);
+    const prompt = terminal.getPrompt();
+    if (result === '__CLEAR__') {
+      setHistory([]);
+    } else {
+      setHistory((prev) => [
+        ...prev,
+        { type: 'command', content: cmd, prompt },
+        ...(result !== '' && result !== undefined ? [{ type: 'output', content: result }] : []),
+      ]);
+    }
+    setCommandHistory((prev) => [cmd, ...prev]);
+    if (onActivity) onActivity();
+  }, [terminal, onActivity]);
+
   const handleSubmit = useCallback(() => {
     const trimmed = input.trim();
     const prompt = terminal.getPrompt();
@@ -295,6 +311,31 @@ export default function Terminal({ navigateTo, onActivity, onFocus }) {
               <div>
                 <span>{parseAnsi(entry.prompt)}</span>
                 <span style={{ color: 'var(--term-fg)' }}>{entry.content}</span>
+              </div>
+            ) : typeof entry.content === 'object' && entry.content.isLsOutput ? (
+              <div style={styles.lsOutput}>
+                {entry.content.items.map((item, idx) => (
+                  <span
+                    key={idx}
+                    onClick={() => runCommand(item.action)}
+                    onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = '#313244'; e.currentTarget.style.textDecoration = 'underline'; }}
+                    onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = 'transparent'; e.currentTarget.style.textDecoration = 'none'; }}
+                    style={{
+                      color: item.isDir ? '#89b4fa' : '#cdd6f4',
+                      fontWeight: item.isDir ? 'bold' : 'normal',
+                      cursor: 'pointer',
+                      padding: '1px 4px',
+                      borderRadius: 3,
+                      fontFamily: "'JetBrains Mono', monospace",
+                      fontSize: 10,
+                      userSelect: 'none',
+                      transition: 'background 0.1s',
+                    }}
+                    title={item.isDir ? `cd ${item.name}` : `cat ${item.name}`}
+                  >
+                    {item.isDir ? item.name + '/' : item.name}
+                  </span>
+                ))}
               </div>
             ) : typeof entry.content === 'object' && entry.content.isNeofetch ? (
               <div style={styles.neofetchContainer}>
@@ -438,6 +479,12 @@ const styles = {
     whiteSpace: 'pre',
     padding: 0,
     margin: 0,
+  },
+  lsOutput: {
+    display: 'flex',
+    flexWrap: 'wrap',
+    gap: '4px 8px',
+    padding: '4px 0',
   },
   neofetchContainer: {
     display: 'flex',

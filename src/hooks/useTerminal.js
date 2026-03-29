@@ -298,11 +298,10 @@ export function createTerminal() {
         const items = node.children.map((child) => {
           const childPath = target === '/' ? `/${child}` : `${target}/${child}`;
           const childNode = fileSystem[childPath];
-          if (childNode && childNode.type === 'dir') return `\x1b[1;34m${child}/\x1b[0m`;
-          if (child.endsWith('.txt')) return `\x1b[0;37m${child}\x1b[0m`;
-          return child;
+          const isDir = childNode && childNode.type === 'dir';
+          return { name: child, isDir, action: isDir ? `cd ${child}` : `cat ${child}` };
         });
-        return items.join('   ');
+        return { isLsOutput: true, items };
       }
 
       case 'cd': {

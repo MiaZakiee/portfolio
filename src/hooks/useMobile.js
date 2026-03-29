@@ -1,0 +1,17 @@
+import { useState, useEffect } from 'react';
+
+export function useMobile() {
+  const [isMobile, setIsMobile] = useState(
+    () => window.innerWidth < 768 || window.matchMedia('(pointer: coarse)').matches
+  );
+
+  useEffect(() => {
+    const check = () => {
+      setIsMobile(window.innerWidth < 768 || window.matchMedia('(pointer: coarse)').matches);
+    };
+    window.addEventListener('resize', check);
+    return () => window.removeEventListener('resize', check);
+  }, []);
+
+  return isMobile;
+}

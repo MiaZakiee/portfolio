@@ -15,7 +15,11 @@ export default function Navbar({ onNavigate, onActivity }) {
 
   return (
     <nav style={styles.nav}>
-      <div style={styles.logo}>
+      <div
+        style={{ ...styles.logo, cursor: 'pointer' }}
+        onClick={() => { onNavigate({ cmd: ['clear', 'neofetch'], id: Date.now() }); if (onActivity) onActivity(); }}
+        title="Go home"
+      >
         <span style={styles.logoSymbol}>❯</span>
         <span style={styles.logoText}>portfolio</span>
       </div>

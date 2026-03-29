@@ -1,11 +1,14 @@
 import React, { useState, useCallback } from 'react';
 import { ThemeProvider } from '@hooks/useTheme';
+import { useMobile } from '@hooks/useMobile';
 import BeachScene from '@components/BeachScene';
 import Navbar from '@components/Navbar';
 import PostIt from '@components/PostIt';
+import MobilePage from '@components/MobilePage';
 import { cameraStore } from './stores/cameraStore';
 
 function PortfolioContent() {
+  const isMobile = useMobile();
   const [navTarget, setNavTarget] = useState(null);
 
   const handleNavigate = useCallback((target) => {
@@ -16,6 +19,10 @@ function PortfolioContent() {
   const handleActivity = useCallback(() => {
     cameraStore.focusLaptop();
   }, []);
+
+  if (isMobile) {
+    return <MobilePage />;
+  }
 
   return (
     <div style={styles.container}>
