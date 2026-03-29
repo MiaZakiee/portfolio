@@ -12,7 +12,11 @@
     "issuer": "Ministry of Science and ICT of South Korea"
   },
   {
-    "name": "AWS Cloud Foundations and Cloud Architecting Certified",
+    "name": "AWS Cloud Foundations",
+    "issuer": "AWS Academy"
+  },
+  {
+    "name": "AWS Cloud Architecting",
     "issuer": "AWS Academy"
   },
   {

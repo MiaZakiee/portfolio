@@ -1,0 +1,34 @@
+{
+  "title": "Nino Rey Cabiltes — Full Stack Developer",
+  "description": "Full Stack Developer based in Cebu, Philippines. Explore my projects in React, Node.js, and AI.",
+  "canonical": "https://ninocabiltes.dev/",
+  "favicon": "/favicon.ico",
+  "themeColor": "#0a0a0f",
+  "og": {
+    "title": "Nino Rey Cabiltes — Full Stack Developer",
+    "description": "Full Stack Developer based in Cebu, Philippines. Explore my projects in React, Node.js, and AI.",
+    "image": "https://ninocabiltes.dev/og-image.png",
+    "url": "https://ninocabiltes.dev/",
+    "type": "website"
+  },
+  "twitter": {
+    "card": "summary_large_image",
+    "title": "Nino Rey Cabiltes — Full Stack Developer",
+    "description": "Full Stack Developer based in Cebu, Philippines. Explore my projects in React, Node.js, and AI.",
+    "image": "https://ninocabiltes.dev/og-image.png"
+  },
+  "jsonLd": {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Nino Rey Cabiltes",
+    "jobTitle": "Full Stack Developer",
+    "url": "https://ninocabiltes.dev/",
+    "email": "ninocabiltes@gmail.com",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Cebu City",
+      "addressCountry": "PH"
+    },
+    "sameAs": []
+  }
+}
