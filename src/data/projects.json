@@ -1,5 +1,16 @@
 [
   {
+    "slug": "job-tracker",
+    "name": "Job Tracker",
+    "description": "AI-Powered Job Application Tracker. Deployed an automated job tracking platform utilizing AWS infrastructure and secure OAuth integration for user access management. Integrated Groq LLMs to automatically parse and classify job application statuses, drastically reducing manual data entry.",
+    "tech": [
+      "NextJS",
+      "AWS",
+      "Groq"
+    ],
+    "date": "2026"
+  },
+  {
     "slug": "huggle",
     "name": "Huggle",
     "description": "A multi-platform food waste reduction app with real-time location services, authentication, and AI-powered features. Reached the final stage of DICT Region 7 StepUp Madasigon Program through WildCats Innovation Labs.",
